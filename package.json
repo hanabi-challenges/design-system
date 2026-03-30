@@ -1,0 +1,44 @@
+{
+  "name": "@hanabi-challenges/design-system",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shared design system for Hanabi Challenges",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./mantine": {
+      "types": "./dist/mantine.d.ts",
+      "import": "./dist/mantine.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
+    "release": "changeset publish"
+  },
+  "peerDependencies": {
+    "@mantine/core": ">=8",
+    "react": ">=19",
+    "react-dom": ">=19",
+    "react-router-dom": ">=7"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.4",
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.39.1",
+    "prettier": "^3.8.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.32.1"
+  }
+}
