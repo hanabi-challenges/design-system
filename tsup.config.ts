@@ -8,8 +8,8 @@ export default defineConfig({
   format: ['esm'],
   dts: {
     resolve: false,
-    tsconfig: 'tsconfig.build.json',
   },
+  tsconfig: 'tsconfig.build.json',
   external: [
     'react',
     'react/jsx-runtime',

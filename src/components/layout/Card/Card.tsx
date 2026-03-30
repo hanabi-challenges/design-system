@@ -207,7 +207,7 @@ export function Card(props: CardProps): ReactElement {
         onMouseLeave={isInteractive ? () => setHovered(false) : undefined}
         aria-disabled={disabled || undefined}
         aria-label={ariaLabel}
-        {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+        {...(rest as Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'>)}
       >
         {children}
       </Paper>
@@ -252,7 +252,7 @@ export function Card(props: CardProps): ReactElement {
       onMouseLeave={isInteractive ? () => setHovered(false) : undefined}
       aria-disabled={disabled || undefined}
       aria-label={ariaLabel}
-      {...(rest as HTMLAttributes<HTMLDivElement>)}
+      {...(rest as Omit<HTMLAttributes<HTMLDivElement>, 'children'>)}
     >
       {children}
     </Box>
