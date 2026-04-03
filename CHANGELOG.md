@@ -1,5 +1,21 @@
 # @hanabi-challenges/design-system
 
+## 2.1.0
+
+### Minor Changes
+
+- 2a99918: Widen Core\* wrapper types to accept arbitrary Mantine props
+  - `CoreButton`, `CoreActionIcon`, `CoreAlert`, `CoreBadge`, `CoreStack`, `CoreImage`: accept `Record<string, unknown>` so Mantine-style props (onClick, loading, variant, color, leftSection, etc.) pass through TypeScript without errors
+  - `Card`: fix overload to accept `href?: string | undefined` (instead of requiring `href?: undefined` for the div branch)
+  - `Card`: add `'accent'` variant
+  - `Button` (DS primitive): add `'outline'` and `'subtle'` variants
+  - `Text` (DS primitive): accept unknown extra props
+  - Export `BadgeTone` type from the package root
+
+### Patch Changes
+
+- 083d81a: Fix `Link` type to accept `children` prop
+
 ## 2.0.0
 
 ### Major Changes
