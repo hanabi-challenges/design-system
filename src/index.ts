@@ -48,6 +48,7 @@ export { NumberInput } from './components/inputs/NumberInput/NumberInput';
 export { RadioGroup } from './components/inputs/RadioGroup/RadioGroup';
 export { ButtonGroup } from './components/inputs/ButtonGroup/ButtonGroup';
 export { SearchSelect } from './components/inputs/SearchSelect/SearchSelect';
+export type { SearchSuggestion } from './components/inputs/SearchSelect/SearchSelect';
 export { Tabs } from './components/navigation/Tabs/Tabs';
 export { Breadcrumbs } from './components/navigation/Breadcrumbs/Breadcrumbs';
 export { Pagination } from './components/navigation/Pagination/Pagination';
