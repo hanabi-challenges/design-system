@@ -86,7 +86,7 @@ import {
   type TooltipProps,
   type UnstyledButtonProps,
 } from '@mantine/core';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 // Align Mantine's primary color with the design system's blue palette so
@@ -578,10 +578,10 @@ export function Anchor(props: AnchorProps & Record<string, unknown>): ReactEleme
   return <MantineAnchor underline="hover" fw={500} {...(props as AnchorProps)} />;
 }
 
-type LinkProps = Omit<AnchorProps, 'href' | 'component'> & { to: string };
+type LinkProps = Omit<AnchorProps, 'href' | 'component'> & { to: string; children?: ReactNode };
 
 export function Link({ to, ...props }: LinkProps): ReactElement {
-  return <MantineAnchor component={RouterLink} to={to} underline="hover" fw={500} {...props} />;
+  return <MantineAnchor component={RouterLink} to={to} underline="hover" fw={500} {...(props as AnchorProps)} />;
 }
 
 export function Blockquote(props: BlockquoteProps): ReactElement {
