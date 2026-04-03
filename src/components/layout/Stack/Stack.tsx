@@ -2,7 +2,7 @@
 import type { CSSProperties, ElementType, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { Box } from '../../../mantine';
 
-export type StackGap = 'none' | 'xs' | 'sm' | 'md' | 'lg';
+export type StackGap = 'none' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number | (string & {});
 export type StackAlign = 'start' | 'center' | 'end' | 'stretch' | 'baseline';
 export type StackJustify =
   | 'start'
@@ -50,13 +50,19 @@ export type StackProps = {
   style?: CSSProperties;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children' | 'style'>;
 
-const gapMap: Record<StackGap, string | number> = {
+const namedGapMap: Record<string, string | number> = {
   none: 0,
+  xxs: 'var(--ds-space-xxs)',
   xs: 'var(--ds-space-xs)',
   sm: 'var(--ds-space-sm)',
   md: 'var(--ds-space-md)',
   lg: 'var(--ds-space-lg)',
 };
+
+function resolveGap(gap: StackGap): string | number {
+  if (typeof gap === 'number') return `${gap}px`;
+  return namedGapMap[gap] ?? gap;
+}
 
 const flexAlignMap: Record<StackAlign, string> = {
   start: 'flex-start',
@@ -94,7 +100,7 @@ export function Stack({
       style={{
         display: 'flex',
         flexDirection: direction,
-        gap: gapMap[gap],
+        gap: resolveGap(gap),
         alignItems: flexAlignMap[align],
         justifyContent: justifyMap[justify],
         flexWrap: wrap ? 'wrap' : 'nowrap',

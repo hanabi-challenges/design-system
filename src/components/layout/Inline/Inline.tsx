@@ -2,7 +2,7 @@
 import type { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import { Box } from '../../../mantine';
 
-export type InlineGap = 'none' | 'xs' | 'sm' | 'md' | 'lg';
+export type InlineGap = 'none' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number | (string & {});
 export type InlineAlign = 'start' | 'center' | 'end' | 'baseline';
 export type InlineJustify =
   | 'start'
@@ -46,13 +46,19 @@ export type InlineProps = {
   className?: string;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'>;
 
-const gapMap: Record<InlineGap, string> = {
+const namedGapMap: Record<string, string> = {
   none: '0',
+  xxs: 'var(--ds-space-xxs)',
   xs: 'var(--ds-space-xs)',
   sm: 'var(--ds-space-sm)',
   md: 'var(--ds-space-md)',
   lg: 'var(--ds-space-lg)',
 };
+
+function resolveGap(gap: InlineGap): string {
+  if (typeof gap === 'number') return `${gap}px`;
+  return namedGapMap[gap] ?? gap;
+}
 
 const alignMap: Record<InlineAlign, CSSProperties['alignItems']> = {
   start: 'flex-start',
@@ -95,7 +101,7 @@ export function Inline({
   const inlineStyle: CSSProperties = {
     display: gridTemplate ? 'grid' : 'flex',
     flexDirection: gridTemplate ? undefined : 'row',
-    gap: gapMap[gap],
+    gap: resolveGap(gap),
     alignItems: alignMap[align],
     justifyContent: justifyMap[justify],
     ...(wrap && !gridTemplate ? { flexWrap: 'wrap' } : {}),

@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactElement } from 'react';
+import type { CSSProperties, ReactElement, ReactNode } from 'react';
 import { Badge as MantineBadge } from '../../../mantine';
 
 export type BadgeTone = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
@@ -7,7 +7,7 @@ export type BadgeSize = 'sm' | 'md';
 type BadgeProps = {
   tone?: BadgeTone;
   size?: BadgeSize;
-  children: ReactElement | string;
+  children: ReactNode;
   className?: string;
 };
 

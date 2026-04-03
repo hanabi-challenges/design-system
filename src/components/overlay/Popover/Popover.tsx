@@ -4,7 +4,19 @@ import { Popover as MantinePopover } from '../../../mantine';
 export type PopoverProps = {
   trigger: ReactNode;
   children: ReactNode;
-  position?: 'top' | 'bottom' | 'left' | 'right';
+  position?:
+    | 'top'
+    | 'bottom'
+    | 'left'
+    | 'right'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'left-start'
+    | 'left-end'
+    | 'right-start'
+    | 'right-end';
   width?: number | string;
 };
 

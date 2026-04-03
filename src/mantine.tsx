@@ -578,7 +578,7 @@ export function Anchor(props: AnchorProps & Record<string, unknown>): ReactEleme
   return <MantineAnchor underline="hover" fw={500} {...(props as AnchorProps)} />;
 }
 
-type LinkProps = Omit<AnchorProps, 'href' | 'component'> & { to: string; children?: ReactNode };
+type LinkProps = Omit<AnchorProps, 'href' | 'component' | 'children'> & { to: string; children?: ReactNode };
 
 export function Link({ to, ...props }: LinkProps): ReactElement {
   return <MantineAnchor component={RouterLink} to={to} underline="hover" fw={500} {...(props as AnchorProps)} />;

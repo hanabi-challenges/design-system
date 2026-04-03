@@ -1,14 +1,17 @@
-import type { CSSProperties, ReactElement } from 'react';
+import type { CSSProperties, ReactElement, ReactNode } from 'react';
 import { Alert as MantineAlert } from '../../../mantine';
 import { MaterialIcon } from '../../data-display/MaterialIcon/MaterialIcon';
 
 export type AlertVariant = 'info' | 'success' | 'warning' | 'error';
 
 type AlertProps = {
-  variant?: AlertVariant;
+  variant?: AlertVariant | (string & {});
   title?: string;
-  message: string;
+  /** Preferred way to provide alert text. If omitted, `children` is rendered instead. */
+  message?: string;
+  children?: ReactNode;
   className?: string;
+  [key: string]: unknown;
 };
 
 type AlertTokens = { bg: string; text: string };
@@ -39,13 +42,21 @@ const iconMap: Record<AlertVariant, string> = {
   error: 'error',
 };
 
-export function Alert({ variant = 'info', title, message, className }: AlertProps): ReactElement {
-  const { bg, text } = variantTokens[variant];
+export function Alert({
+  variant = 'info',
+  title,
+  message,
+  children,
+  className,
+}: AlertProps): ReactElement {
+  const dsVariant = variant as AlertVariant;
+  const tokens = variantTokens[dsVariant] ?? variantTokens['info'];
+  const { bg, text } = tokens;
   return (
     <MantineAlert
       variant="default"
       title={title}
-      icon={<MaterialIcon name={iconMap[variant]} />}
+      icon={<MaterialIcon name={iconMap[dsVariant] ?? 'info'} />}
       className={className}
       role="status"
       styles={{
@@ -55,7 +66,7 @@ export function Alert({ variant = 'info', title, message, className }: AlertProp
         icon: { color: text } as CSSProperties,
       }}
     >
-      {message}
+      {message ?? children}
     </MantineAlert>
   );
 }
