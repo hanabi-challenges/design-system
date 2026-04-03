@@ -10,7 +10,7 @@ import type {
 import { useState } from 'react';
 import { Box, Paper } from '../../../mantine';
 
-export type CardVariant = 'elevated' | 'outline' | 'subtle' | 'ghost';
+export type CardVariant = 'elevated' | 'outline' | 'subtle' | 'ghost' | 'accent';
 export type CardTone = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 export type CardPadding = 'none' | 'xs' | 'sm' | 'md' | 'lg';
 
@@ -45,6 +45,12 @@ function getVariantStyle(variant: CardVariant): CSSProperties {
         boxShadow: 'none',
         borderColor: 'transparent',
         background: 'transparent',
+      };
+    case 'accent':
+      return {
+        boxShadow: 'none',
+        borderColor: 'var(--ds-color-accent-weak)',
+        background: 'color-mix(in srgb, var(--ds-color-accent-weak) 30%, var(--ds-color-surface))',
       };
   }
 }
@@ -97,9 +103,12 @@ type CommonProps = {
   'aria-label'?: string;
 };
 
+// href?: string | undefined so callers with a `string | undefined` variable still
+// match this overload (TypeScript checks AnchorCardProps first; if href is a
+// concrete string it matches that overload, otherwise DivCardProps wins).
 export type DivCardProps = CommonProps &
   Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children' | 'onClick'> & {
-    href?: undefined;
+    href?: string | undefined;
   };
 
 export type AnchorCardProps = CommonProps &

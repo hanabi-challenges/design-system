@@ -12,6 +12,7 @@ type TextProps = {
   lineClamp?: number;
   preWrap?: boolean;
   className?: string;
+  [key: string]: unknown;
 };
 
 const variantStyles: Record<TextVariant, CSSProperties> = {

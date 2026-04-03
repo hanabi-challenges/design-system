@@ -21,6 +21,7 @@ export { Input } from './components/inputs/Input/Input';
 export { Pill } from './components/data-display/Pill/Pill';
 export { PillSkeleton } from './components/data-display/Pill/PillSkeleton';
 export { Badge } from './components/data-display/Badge/Badge';
+export type { BadgeTone } from './components/data-display/Badge/Badge';
 export { BadgeSkeleton } from './components/data-display/Badge/BadgeSkeleton';
 export { MaterialIcon } from './components/data-display/MaterialIcon/MaterialIcon';
 export { Table } from './components/data-display/Table/Table';

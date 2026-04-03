@@ -477,16 +477,16 @@ export function Card(props: CardProps): ReactElement {
   );
 }
 
-export function Button(props: ButtonProps): ReactElement {
-  return <MantineButton radius="md" {...props} />;
+export function Button(props: ButtonProps & Record<string, unknown>): ReactElement {
+  return <MantineButton radius="md" {...(props as ButtonProps)} />;
 }
 
-export function Alert(props: AlertProps): ReactElement {
-  return <MantineAlert radius="md" {...props} />;
+export function Alert(props: AlertProps & Record<string, unknown>): ReactElement {
+  return <MantineAlert radius="md" {...(props as AlertProps)} />;
 }
 
-export function Stack(props: StackProps): ReactElement {
-  return <MantineStack gap="sm" {...props} />;
+export function Stack(props: StackProps & Record<string, unknown>): ReactElement {
+  return <MantineStack gap="sm" {...(props as StackProps)} />;
 }
 
 export function Group(props: GroupProps): ReactElement {
@@ -540,12 +540,12 @@ export function Tooltip(props: TooltipProps): ReactElement {
   return <MantineTooltip withArrow {...props} />;
 }
 
-export function ActionIcon(props: ActionIconProps): ReactElement {
-  return <MantineActionIcon radius="md" {...props} />;
+export function ActionIcon(props: ActionIconProps & Record<string, unknown>): ReactElement {
+  return <MantineActionIcon radius="md" {...(props as ActionIconProps)} />;
 }
 
-export function Badge(props: BadgeProps): ReactElement {
-  return <MantineBadge radius="sm" {...props} />;
+export function Badge(props: BadgeProps & Record<string, unknown>): ReactElement {
+  return <MantineBadge radius="sm" {...(props as BadgeProps)} />;
 }
 
 export function Switch(props: SwitchProps): ReactElement {
@@ -592,8 +592,8 @@ export function Code(props: CodeProps): ReactElement {
   return <MantineCode {...props} />;
 }
 
-export function Image(props: ImageProps): ReactElement {
-  return <MantineImage {...props} />;
+export function Image(props: ImageProps & Record<string, unknown>): ReactElement {
+  return <MantineImage {...(props as ImageProps)} />;
 }
 
 // PaperProps doesn't include polymorphic props (component, anchor attrs, etc.)

@@ -8,7 +8,7 @@ import type {
 import { useState } from 'react';
 import { UnstyledButton } from '../../../mantine';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'subtle';
 export type ButtonSize = 'md' | 'sm';
 
 export type ButtonProps<T extends ElementType = 'button'> = {
@@ -39,6 +39,16 @@ const baseStyles: Record<ButtonVariant, CSSProperties> = {
     color: 'var(--ds-color-text)',
     borderColor: 'transparent',
   },
+  outline: {
+    background: 'transparent',
+    color: 'var(--ds-color-accent-strong)',
+    borderColor: 'var(--ds-color-accent-strong)',
+  },
+  subtle: {
+    background: 'transparent',
+    color: 'var(--ds-color-text-muted)',
+    borderColor: 'transparent',
+  },
 };
 
 const hoverStyles: Record<ButtonVariant, CSSProperties> = {
@@ -54,6 +64,14 @@ const hoverStyles: Record<ButtonVariant, CSSProperties> = {
     background: 'color-mix(in srgb, var(--ds-color-accent-weak) 20%, transparent)',
     borderColor: 'var(--ds-color-border)',
     boxShadow: 'var(--ds-elevation-2, 0 4px 12px rgba(0, 0, 0, 0.08))',
+  },
+  outline: {
+    background: 'color-mix(in srgb, var(--ds-color-accent-weak) 20%, transparent)',
+    borderColor: 'var(--ds-color-accent-mid)',
+  },
+  subtle: {
+    background: 'color-mix(in srgb, var(--ds-color-accent-weak) 15%, transparent)',
+    color: 'var(--ds-color-text)',
   },
 };
 
@@ -71,6 +89,16 @@ const disabledStyles: Record<ButtonVariant, CSSProperties> = {
     color: 'var(--ds-color-text-muted)',
   },
   ghost: {
+    background: 'transparent',
+    borderColor: 'transparent',
+    color: 'var(--ds-color-text-muted)',
+  },
+  outline: {
+    background: 'transparent',
+    borderColor: 'var(--ds-color-border)',
+    color: 'var(--ds-color-text-muted)',
+  },
+  subtle: {
     background: 'transparent',
     borderColor: 'transparent',
     color: 'var(--ds-color-text-muted)',
