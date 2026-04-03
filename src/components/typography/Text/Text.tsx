@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, ReactElement, ReactNode } from 'react';
 import { Text as MantineText } from '../../../mantine';
 
 export type TextVariant = 'body' | 'muted' | 'subtle' | 'label' | 'caption' | 'overline';
@@ -58,7 +58,7 @@ export function Text({
   lineClamp,
   preWrap,
   className,
-}: TextProps) {
+}: TextProps): ReactElement {
   const extra: CSSProperties = {};
 
   if (weight) extra.fontWeight = weightMap[weight];

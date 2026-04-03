@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { Box } from '../../../mantine';
 
 export type TimelineDotVariant = 'default' | 'transition';
@@ -27,7 +27,7 @@ const variantStyles = {
  * Circular indicator used as the left-rail marker in a timeline layout.
  * Use variant="transition" for system events, variant="default" for user actions.
  */
-export function TimelineDot({ children, variant = 'default', className }: TimelineDotProps) {
+export function TimelineDot({ children, variant = 'default', className }: TimelineDotProps): ReactElement {
   return (
     <Box
       className={className}

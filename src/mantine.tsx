@@ -431,12 +431,12 @@ export function Group(props: GroupProps): ReactElement {
   return <MantineGroup gap="sm" {...props} />;
 }
 
-export function Text(props: TextProps): ReactElement {
-  return <MantineText {...props} />;
+export function Text(props: TextProps & Record<string, unknown>): ReactElement {
+  return <MantineText {...(props as TextProps)} />;
 }
 
-export function Title(props: TitleProps): ReactElement {
-  return <MantineTitle {...props} />;
+export function Title(props: TitleProps & Record<string, unknown>): ReactElement {
+  return <MantineTitle {...(props as TitleProps)} />;
 }
 
 export function Modal(props: ModalProps): ReactElement {
@@ -459,16 +459,19 @@ export function PasswordInput(props: PasswordInputProps): ReactElement {
   return <MantinePasswordInput {...props} />;
 }
 
-export function TextInput(props: TextInputProps): ReactElement {
-  return <MantineTextInput {...props} />;
+export function TextInput(props: TextInputProps & Record<string, unknown>): ReactElement {
+  return <MantineTextInput {...(props as TextInputProps)} />;
 }
 
 export function Textarea(props: TextareaProps): ReactElement {
   return <MantineTextarea autosize minRows={3} {...props} />;
 }
 
-export function Box(props: BoxProps): ReactElement {
-  return <MantineBox {...props} />;
+// BoxProps doesn't expose the polymorphic `component` prop at the TypeScript
+// interface level in Mantine v8. Allow it via intersection so callers can pass
+// component="div", component="span", etc.
+export function Box(props: BoxProps & Record<string, unknown>): ReactElement {
+  return <MantineBox {...(props as BoxProps)} />;
 }
 
 export function Tooltip(props: TooltipProps): ReactElement {
@@ -497,8 +500,8 @@ export function Indicator(props: IndicatorProps): ReactElement {
   return <MantineIndicator {...props} />;
 }
 
-export function UnstyledButton(props: UnstyledButtonProps): ReactElement {
-  return <MantineUnstyledButton {...props} />;
+export function UnstyledButton(props: UnstyledButtonProps & Record<string, unknown>): ReactElement {
+  return <MantineUnstyledButton {...(props as UnstyledButtonProps)} />;
 }
 
 export function Loader(props: LoaderProps): ReactElement {
@@ -509,8 +512,8 @@ export function Divider(props: DividerProps): ReactElement {
   return <MantineDivider {...props} />;
 }
 
-export function Anchor(props: AnchorProps): ReactElement {
-  return <MantineAnchor underline="hover" fw={500} {...props} />;
+export function Anchor(props: AnchorProps & Record<string, unknown>): ReactElement {
+  return <MantineAnchor underline="hover" fw={500} {...(props as AnchorProps)} />;
 }
 
 type LinkProps = Omit<AnchorProps, 'href' | 'component'> & { to: string };
@@ -531,8 +534,10 @@ export function Image(props: ImageProps): ReactElement {
   return <MantineImage {...props} />;
 }
 
-export function Paper(props: PaperProps): ReactElement {
-  return <MantinePaper radius="md" withBorder {...props} />;
+// PaperProps doesn't include polymorphic props (component, anchor attrs, etc.)
+// at the TypeScript interface level in Mantine v8. Allow them via intersection.
+export function Paper(props: PaperProps & Record<string, unknown>): ReactElement {
+  return <MantinePaper radius="md" withBorder {...(props as PaperProps)} />;
 }
 
 export function SimpleGrid(props: SimpleGridProps): ReactElement {

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { Box } from '../../../mantine';
 
 type StatBlockProps = {
@@ -11,7 +11,7 @@ type StatBlockProps = {
  * StatBlock
  * Compact stat display for use inside cards — a bold number above a muted label.
  */
-export function StatBlock({ value, label, className }: StatBlockProps) {
+export function StatBlock({ value, label, className }: StatBlockProps): ReactElement {
   return (
     <Box className={className} style={{ textAlign: 'center' }}>
       <Box
