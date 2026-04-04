@@ -1,6 +1,6 @@
 {
   "name": "@hanabi-challenges/design-system",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "type": "module",
   "description": "Shared design system for Hanabi Challenges",
   "exports": {

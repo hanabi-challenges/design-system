@@ -1,5 +1,11 @@
 # @hanabi-challenges/design-system
 
+## 2.2.1
+
+### Patch Changes
+
+- d96459c: Fix CSS custom property --ds-typography-fontFamily-heading/display to use Permanent Marker instead of stale Pacifico value
+
 ## 2.2.0
 
 ### Minor Changes
