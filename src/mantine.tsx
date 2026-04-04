@@ -337,8 +337,8 @@ const cssVariablesResolver: CSSVariablesResolver = () => ({
     "--ds-textScale-11-fontSize": "40px",
     "--ds-textScale-11-lineHeight": "1.2",
     // typography
-    "--ds-typography-fontFamily-display": '"Pacifico", cursive',
-    "--ds-typography-fontFamily-heading": '"Pacifico", cursive',
+    "--ds-typography-fontFamily-display": '"Permanent Marker", cursive',
+    "--ds-typography-fontFamily-heading": '"Permanent Marker", cursive',
     "--ds-typography-fontFamily-body": '"Inter", sans-serif',
     "--ds-typography-fontFamily-prose": '"Lora", serif',
     "--ds-typography-fontFamily-mono": '"Roboto Mono", monospace',
