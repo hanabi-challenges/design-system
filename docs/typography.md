@@ -2,14 +2,14 @@
 
 ## Font stack
 
-| Role    | Family           | Weight | Usage                         |
-| ------- | ---------------- | ------ | ----------------------------- |
-| Display | Permanent Marker | 400    | Hero text, page titles (h1)   |
-| Heading | Permanent Marker | 400    | Section headings (h2–h5)      |
-| Body    | Inter            | 400    | All UI text, labels, inputs   |
-| Prose   | Lora             | 400    | Long-form reading content     |
-| Mono    | Roboto Mono      | 400    | Seeds, code, technical values |
-| Meta    | Inter            | 400    | Captions, tooltips, microcopy |
+| Role    | Family           | Weight | Usage                                                |
+| ------- | ---------------- | ------ | ---------------------------------------------------- |
+| Display | Permanent Marker | 400    | Hero text, page titles (h1)                          |
+| Heading | Permanent Marker | 400    | Section headings (h2–h5)                             |
+| Body    | Inter            | 400    | All UI text, labels, inputs                          |
+| Prose   | Inter            | 400    | Long-form reading content (temporarily matches body) |
+| Mono    | Roboto Mono      | 400    | Seeds, code, technical values                        |
+| Meta    | Inter            | 400    | Captions, tooltips, microcopy                        |
 
 ## Loading fonts
 
@@ -19,7 +19,7 @@ The design system references fonts by name only — it does not bundle or load t
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Lora:wght@400&family=Permanent+Marker&family=Roboto+Mono:wght@400&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Permanent+Marker&family=Roboto+Mono:wght@400&display=swap"
   rel="stylesheet"
 />
 ```
