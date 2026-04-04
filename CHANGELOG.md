@@ -1,5 +1,11 @@
 # @hanabi-challenges/design-system
 
+## 2.2.2
+
+### Patch Changes
+
+- 41602ea: Temporarily map prose font family to Inter (matching body) until prose has a distinct use case; remove Lora from recommended Google Fonts snippet
+
 ## 2.2.1
 
 ### Patch Changes
