@@ -1,7 +1,7 @@
-import type { ReactElement } from 'react';
-import { Skeleton } from '../../feedback/Skeleton/Skeleton';
-import { Card } from './Card';
-import type { CardVariant, CardPadding } from './Card';
+import type { ReactElement } from "react";
+import { Skeleton } from "../../feedback/Skeleton/Skeleton";
+import { Card } from "./Card";
+import type { CardVariant, CardPadding } from "./Card";
 
 type CardSkeletonProps = {
   /** Number of body text lines. */
@@ -23,8 +23,8 @@ type CardSkeletonProps = {
  */
 export function CardSkeleton({
   lines = 3,
-  variant = 'elevated',
-  padding = 'md',
+  variant = "elevated",
+  padding = "md",
   showHeader = true,
   showFooter = false,
   animate = true,
@@ -32,13 +32,25 @@ export function CardSkeleton({
 }: CardSkeletonProps): ReactElement {
   return (
     <Card variant={variant} padding={padding} className={className}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ds-space-sm)' }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--ds-space-sm)",
+        }}
+      >
         {showHeader && <Skeleton width="55%" height="22px" animate={animate} />}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ds-space-xs)' }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--ds-space-xs)",
+          }}
+        >
           {Array.from({ length: lines }, (_, i) => (
             <Skeleton
               key={i}
-              width={i === lines - 1 ? '60%' : '90%'}
+              width={i === lines - 1 ? "60%" : "90%"}
               height="14px"
               animate={animate}
             />
@@ -46,10 +58,24 @@ export function CardSkeleton({
         </div>
         {showFooter && (
           <div
-            style={{ display: 'flex', gap: 'var(--ds-space-xs)', marginTop: 'var(--ds-space-xs)' }}
+            style={{
+              display: "flex",
+              gap: "var(--ds-space-xs)",
+              marginTop: "var(--ds-space-xs)",
+            }}
           >
-            <Skeleton width={80} height="32px" radius="var(--ds-radius-md)" animate={animate} />
-            <Skeleton width={64} height="32px" radius="var(--ds-radius-md)" animate={animate} />
+            <Skeleton
+              width={80}
+              height="32px"
+              radius="var(--ds-radius-md)"
+              animate={animate}
+            />
+            <Skeleton
+              width={64}
+              height="32px"
+              radius="var(--ds-radius-md)"
+              animate={animate}
+            />
           </div>
         )}
       </div>

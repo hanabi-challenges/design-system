@@ -1,9 +1,9 @@
-import type { CSSProperties, ReactElement } from 'react';
-import { Skeleton as MantineSkeleton } from '../../../mantine';
+import type { CSSProperties, ReactElement } from "react";
+import { Skeleton as MantineSkeleton } from "../../../mantine";
 
 export type SkeletonProps = {
-  width?: CSSProperties['width'];
-  height?: CSSProperties['height'];
+  width?: CSSProperties["width"];
+  height?: CSSProperties["height"];
   /** Defaults to pill (999px) for inline elements, or ds-radius-sm for blocks. */
   radius?: string | number;
   animate?: boolean;
@@ -18,8 +18,8 @@ export type SkeletonProps = {
  */
 export function Skeleton({
   width,
-  height = '1em',
-  radius = 'var(--ds-radius-sm)',
+  height = "1em",
+  radius = "var(--ds-radius-sm)",
   animate = true,
   circle = false,
   className,

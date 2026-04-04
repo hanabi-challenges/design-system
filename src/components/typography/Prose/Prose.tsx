@@ -1,7 +1,7 @@
-import React from 'react';
-import type { ReactElement, ReactNode } from 'react';
-import { Box } from '../../../mantine';
-import { textStyles } from '../../../primitives/text-styles';
+import React from "react";
+import type { ReactElement, ReactNode } from "react";
+import { Box } from "../../../mantine";
+import { textStyles } from "../../../primitives/text-styles";
 
 /**
  * Prose
@@ -13,7 +13,7 @@ export function Prose({ children }: { children: ReactNode }): ReactElement {
   return (
     <Box
       style={{
-        color: 'var(--ds-color-text)',
+        color: "var(--ds-color-text)",
         fontFamily: prose.fontFamily,
         fontSize: prose.fontSize,
         lineHeight: prose.lineHeight,
@@ -28,7 +28,9 @@ export function Prose({ children }: { children: ReactNode }): ReactElement {
 function wrapInline(node: ReactNode): ReactNode {
   // If it's already an array of elements, map recursively
   if (Array.isArray(node)) {
-    return node.map((child, idx) => <React.Fragment key={idx}>{wrapInline(child)}</React.Fragment>);
+    return node.map((child, idx) => (
+      <React.Fragment key={idx}>{wrapInline(child)}</React.Fragment>
+    ));
   }
 
   // Leave valid React elements alone (they control their own semantics)
@@ -37,9 +39,13 @@ function wrapInline(node: ReactNode): ReactNode {
   }
 
   // If it's a string/number/boolean/null/undefined, wrap in a paragraph for spacing
-  if (typeof node === 'string' || typeof node === 'number' || typeof node === 'boolean') {
+  if (
+    typeof node === "string" ||
+    typeof node === "number" ||
+    typeof node === "boolean"
+  ) {
     return (
-      <Box component="p" style={{ margin: '0 0 var(--ds-space-sm)' }}>
+      <Box component="p" style={{ margin: "0 0 var(--ds-space-sm)" }}>
         {node}
       </Box>
     );
@@ -50,5 +56,5 @@ function wrapInline(node: ReactNode): ReactNode {
 }
 
 function isReactElement(node: ReactNode): node is React.ReactElement {
-  return typeof node === 'object' && node !== null && 'props' in node;
+  return typeof node === "object" && node !== null && "props" in node;
 }

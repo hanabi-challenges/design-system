@@ -1,12 +1,12 @@
-import type { InputHTMLAttributes, ReactElement } from 'react';
-import { Radio as MantineRadio } from '../../../mantine';
+import type { InputHTMLAttributes, ReactElement } from "react";
+import { Radio as MantineRadio } from "../../../mantine";
 
 export type RadioProps = {
   label?: string;
   helperText?: string;
   error?: string | null;
   className?: string;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "size">;
 
 export function Radio({
   label,

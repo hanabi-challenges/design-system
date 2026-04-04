@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactElement } from 'react';
-import { Box } from '../../../mantine';
+import type { CSSProperties, ReactElement } from "react";
+import { Box } from "../../../mantine";
 
 type MaterialIconProps = {
   name: string;
@@ -23,7 +23,9 @@ export function MaterialIcon({
   return (
     <Box
       component="span"
-      className={['material-symbols-outlined', className].filter(Boolean).join(' ')}
+      className={["material-symbols-outlined", className]
+        .filter(Boolean)
+        .join(" ")}
       aria-hidden={ariaHidden}
       aria-label={ariaLabel}
       title={title}

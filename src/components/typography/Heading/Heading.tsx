@@ -1,10 +1,10 @@
-import type { ElementType, ReactElement, ReactNode } from 'react';
-import { Title } from '../../../mantine';
-import { textStyles } from '../../../primitives/text-styles';
+import type { ElementType, ReactElement, ReactNode } from "react";
+import { Title } from "../../../mantine";
+import { textStyles } from "../../../primitives/text-styles";
 
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
-type HeadingProps<T extends ElementType = 'h2'> = {
+type HeadingProps<T extends ElementType = "h2"> = {
   level?: HeadingLevel;
   as?: T;
   children: ReactNode;
@@ -24,7 +24,7 @@ const styleMap = {
  * Heading
  * Semantic text component mapping level to tokenized sizes/weights.
  */
-export function Heading<T extends ElementType = 'h2'>({
+export function Heading<T extends ElementType = "h2">({
   level = 2,
   as,
   children,
@@ -35,16 +35,16 @@ export function Heading<T extends ElementType = 'h2'>({
   return (
     <Title
       order={level}
-      component={(as ?? (`h${level}` as ElementType)) as 'h1'}
+      component={(as ?? (`h${level}` as ElementType)) as "h1"}
       className={className}
       style={{
-        color: 'var(--ds-color-text)',
+        color: "var(--ds-color-text)",
         margin: 0,
         fontFamily: style.fontFamily,
         fontSize: style.fontSize,
         lineHeight: style.lineHeight,
         fontWeight: style.fontWeight,
-        letterSpacing: style.letterSpacing ?? 'normal',
+        letterSpacing: style.letterSpacing ?? "normal",
       }}
     >
       {children}

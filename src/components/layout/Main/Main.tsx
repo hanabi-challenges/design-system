@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactElement, ReactNode } from 'react';
-import { Box } from '../../../mantine';
+import type { CSSProperties, ReactElement, ReactNode } from "react";
+import { Box } from "../../../mantine";
 
 type MainProps = {
   children: ReactNode;

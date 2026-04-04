@@ -6,76 +6,84 @@ import type {
   MouseEventHandler,
   ReactElement,
   ReactNode,
-} from 'react';
-import { useState } from 'react';
-import { Box, Paper } from '../../../mantine';
+} from "react";
+import { useState } from "react";
+import { Box, Paper } from "../../../mantine";
 
-export type CardVariant = 'elevated' | 'outline' | 'subtle' | 'ghost' | 'accent';
-export type CardTone = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
-export type CardPadding = 'none' | 'xs' | 'sm' | 'md' | 'lg';
+export type CardVariant =
+  | "elevated"
+  | "outline"
+  | "subtle"
+  | "ghost"
+  | "accent";
+export type CardTone = "neutral" | "info" | "success" | "warning" | "danger";
+export type CardPadding = "none" | "xs" | "sm" | "md" | "lg";
 
 const paddingMap: Record<CardPadding, string> = {
-  none: '0',
-  xs: 'var(--ds-space-xs)',
-  sm: 'var(--ds-space-sm)',
-  md: 'var(--ds-space-md)',
-  lg: 'var(--ds-space-lg)',
+  none: "0",
+  xs: "var(--ds-space-xs)",
+  sm: "var(--ds-space-sm)",
+  md: "var(--ds-space-md)",
+  lg: "var(--ds-space-lg)",
 };
 
 function getVariantStyle(variant: CardVariant): CSSProperties {
   switch (variant) {
-    case 'elevated':
+    case "elevated":
       return {
-        boxShadow: 'var(--ds-elevation-2, 0 4px 12px rgba(0, 0, 0, 0.08))',
-        borderColor: 'var(--ds-color-border)',
+        boxShadow: "var(--ds-elevation-2, 0 4px 12px rgba(0, 0, 0, 0.08))",
+        borderColor: "var(--ds-color-border)",
       };
-    case 'outline':
+    case "outline":
       return {
-        boxShadow: 'none',
-        borderColor: 'var(--ds-color-border)',
+        boxShadow: "none",
+        borderColor: "var(--ds-color-border)",
       };
-    case 'subtle':
+    case "subtle":
       return {
-        boxShadow: 'none',
-        borderColor: 'var(--ds-color-border)',
-        background: 'var(--ds-color-surface-muted)',
+        boxShadow: "none",
+        borderColor: "var(--ds-color-border)",
+        background: "var(--ds-color-surface-muted)",
       };
-    case 'ghost':
+    case "ghost":
       return {
-        boxShadow: 'none',
-        borderColor: 'transparent',
-        background: 'transparent',
+        boxShadow: "none",
+        borderColor: "transparent",
+        background: "transparent",
       };
-    case 'accent':
+    case "accent":
       return {
-        boxShadow: 'none',
-        borderColor: 'var(--ds-color-accent-weak)',
-        background: 'color-mix(in srgb, var(--ds-color-accent-weak) 30%, var(--ds-color-surface))',
+        boxShadow: "none",
+        borderColor: "var(--ds-color-accent-weak)",
+        background:
+          "color-mix(in srgb, var(--ds-color-accent-weak) 30%, var(--ds-color-surface))",
       };
   }
 }
 
 function getToneStyle(tone: CardTone): CSSProperties {
   switch (tone) {
-    case 'neutral':
+    case "neutral":
       return {};
-    case 'info':
-      return {
-        background: 'color-mix(in srgb, var(--ds-color-accent-weak) 20%, transparent)',
-      };
-    case 'success':
+    case "info":
       return {
         background:
-          'color-mix(in srgb, var(--ds-color-categorical-cat6-light, #14b8a6) 12%, transparent)',
+          "color-mix(in srgb, var(--ds-color-accent-weak) 20%, transparent)",
       };
-    case 'warning':
+    case "success":
       return {
         background:
-          'color-mix(in srgb, var(--ds-color-categorical-cat4-light, #d97706) 12%, transparent)',
+          "color-mix(in srgb, var(--ds-color-categorical-cat6-light, #14b8a6) 12%, transparent)",
       };
-    case 'danger':
+    case "warning":
       return {
-        background: 'color-mix(in srgb, var(--ds-color-scale-amber-5, #b45309) 12%, transparent)',
+        background:
+          "color-mix(in srgb, var(--ds-color-categorical-cat4-light, #d97706) 12%, transparent)",
+      };
+    case "danger":
+      return {
+        background:
+          "color-mix(in srgb, var(--ds-color-scale-amber-5, #b45309) 12%, transparent)",
       };
   }
 }
@@ -83,7 +91,7 @@ function getToneStyle(tone: CardTone): CSSProperties {
 type CommonProps = {
   children: ReactNode;
   className?: string;
-  maxWidth?: CSSProperties['maxWidth'];
+  maxWidth?: CSSProperties["maxWidth"];
   separated?: boolean;
   ref?: ((node: HTMLElement | null) => void) | null;
 
@@ -100,19 +108,22 @@ type CommonProps = {
   // shared click handler type that works for both container and anchor roots
   onClick?: MouseEventHandler<HTMLDivElement | HTMLAnchorElement>;
 
-  'aria-label'?: string;
+  "aria-label"?: string;
 };
 
 // href?: string | undefined so callers with a `string | undefined` variable still
 // match this overload (TypeScript checks AnchorCardProps first; if href is a
 // concrete string it matches that overload, otherwise DivCardProps wins).
 export type DivCardProps = CommonProps &
-  Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children' | 'onClick'> & {
+  Omit<HTMLAttributes<HTMLDivElement>, "className" | "children" | "onClick"> & {
     href?: string | undefined;
   };
 
 export type AnchorCardProps = CommonProps &
-  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'className' | 'children' | 'onClick'> & {
+  Omit<
+    AnchorHTMLAttributes<HTMLAnchorElement>,
+    "className" | "children" | "onClick"
+  > & {
     href: string;
   };
 
@@ -125,34 +136,35 @@ function buildCardStyle(
   isInteractive: boolean,
   disabled: boolean,
   hovered: boolean,
-  maxWidth?: CSSProperties['maxWidth'],
+  maxWidth?: CSSProperties["maxWidth"],
 ): CSSProperties {
   const base: CSSProperties = {
-    display: 'block',
-    maxWidth: maxWidth ?? '100%',
-    borderRadius: 'var(--ds-radius-md)',
-    border: '1px solid var(--ds-color-border)',
-    background: 'var(--ds-color-surface-muted)',
-    color: 'var(--ds-color-text)',
-    textDecoration: 'none',
-    position: 'relative',
+    display: "block",
+    maxWidth: maxWidth ?? "100%",
+    borderRadius: "var(--ds-radius-md)",
+    border: "1px solid var(--ds-color-border)",
+    background: "var(--ds-color-surface-muted)",
+    color: "var(--ds-color-text)",
+    textDecoration: "none",
+    position: "relative",
     padding: paddingMap[padding],
     ...getVariantStyle(variant),
     ...getToneStyle(tone),
   };
 
   if (isInteractive) {
-    base.cursor = 'pointer';
+    base.cursor = "pointer";
     base.transition =
-      'box-shadow 120ms ease, transform 120ms ease, border-color 120ms ease, background-color 120ms ease';
+      "box-shadow 120ms ease, transform 120ms ease, border-color 120ms ease, background-color 120ms ease";
     // Always set backgroundColor explicitly (not just on hover) so the CSS
     // transition has two concrete values to interpolate between. Without this,
     // removing the inline backgroundColor on mouse-leave causes the browser to
     // skip the transition and snap to the shorthand-computed value.
-    const restingBackground = (base.background as string) || 'var(--ds-color-surface)';
+    const restingBackground =
+      (base.background as string) || "var(--ds-color-surface)";
     if (hovered) {
-      base.boxShadow = 'var(--ds-elevation-3, 0 6px 16px rgba(0, 0, 0, 0.12))';
-      base.transform = 'translateY(-1px)';
+      base.boxShadow = "var(--ds-elevation-3, 0 6px 16px rgba(0, 0, 0, 0.12))";
+      base.transform = "translateY(-1px)";
       base.backgroundColor = `color-mix(in srgb, var(--ds-color-accent-weak) 25%, ${restingBackground})`;
     } else {
       base.backgroundColor = restingBackground;
@@ -161,8 +173,8 @@ function buildCardStyle(
 
   if (disabled) {
     base.opacity = 0.5;
-    base.cursor = 'not-allowed';
-    base.pointerEvents = 'none';
+    base.cursor = "not-allowed";
+    base.pointerEvents = "none";
   }
 
   return base;
@@ -175,14 +187,14 @@ export function Card(props: CardProps): ReactElement {
   const [hovered, setHovered] = useState(false);
 
   // Anchor branch: href present and is a string
-  if ('href' in props && typeof props.href === 'string') {
+  if ("href" in props && typeof props.href === "string") {
     const {
       children,
       className,
       maxWidth,
-      variant = 'elevated',
-      tone = 'neutral',
-      padding = 'md',
+      variant = "elevated",
+      tone = "neutral",
+      padding = "md",
       interactive,
       disabled = false,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -190,7 +202,7 @@ export function Card(props: CardProps): ReactElement {
       href,
       onClick,
       style: styleOverride,
-      'aria-label': ariaLabel,
+      "aria-label": ariaLabel,
       ...rest
     } = props as AnchorCardProps;
 
@@ -228,16 +240,16 @@ export function Card(props: CardProps): ReactElement {
     children,
     className,
     maxWidth,
-    variant = 'elevated',
-    tone = 'neutral',
-    padding = 'md',
+    variant = "elevated",
+    tone = "neutral",
+    padding = "md",
     interactive,
     disabled = false,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     separated: _sep2,
     onClick,
     style: styleOverride,
-    'aria-label': ariaLabel,
+    "aria-label": ariaLabel,
     ...rest
   } = props as DivCardProps;
 

@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
-import { Box, Text } from '../../../mantine';
-import { Button } from '../../inputs/Button/Button';
+import type { ReactElement } from "react";
+import { Box, Text } from "../../../mantine";
+import { Button } from "../../inputs/Button/Button";
 
 type PaginationProps = {
   totalItems: number;
@@ -29,15 +29,20 @@ export function Pagination({
 
   return (
     <Box
-      style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        width: "100%",
+      }}
       className={className}
     >
       <Box
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 'var(--ds-space-xs)',
-          flexWrap: 'wrap',
+          display: "flex",
+          alignItems: "center",
+          gap: "var(--ds-space-xs)",
+          flexWrap: "wrap",
         }}
       >
         <Button
@@ -58,7 +63,10 @@ export function Pagination({
         >
           ‹
         </Button>
-        <Text component="span" style={{ color: 'var(--ds-color-text-muted)', fontWeight: 600 }}>
+        <Text
+          component="span"
+          style={{ color: "var(--ds-color-text-muted)", fontWeight: 600 }}
+        >
           Page {currentPage} of {totalPages}
         </Text>
         <Button

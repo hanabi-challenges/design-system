@@ -1,8 +1,8 @@
-import type { ReactElement } from 'react';
-import { Skeleton } from '../../feedback/Skeleton/Skeleton';
+import type { ReactElement } from "react";
+import { Skeleton } from "../../feedback/Skeleton/Skeleton";
 
 type KPITextSkeletonProps = {
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   /** Show a label line above the value. */
   showLabel?: boolean;
   /** Show a subtext line below the value. */
@@ -11,10 +11,10 @@ type KPITextSkeletonProps = {
   className?: string;
 };
 
-const valueHeightBySize: Record<'sm' | 'md' | 'lg', string> = {
-  sm: '24px',
-  md: '34px',
-  lg: '48px',
+const valueHeightBySize: Record<"sm" | "md" | "lg", string> = {
+  sm: "24px",
+  md: "34px",
+  lg: "48px",
 };
 
 /**
@@ -22,7 +22,7 @@ const valueHeightBySize: Record<'sm' | 'md' | 'lg', string> = {
  * Shimmer placeholder matching KPIText's label / value / subtext layout.
  */
 export function KPITextSkeleton({
-  size = 'md',
+  size = "md",
   showLabel = true,
   showSubtext = false,
   animate = true,
@@ -31,7 +31,11 @@ export function KPITextSkeleton({
   return (
     <div
       className={className}
-      style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ds-space-xxs)' }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "var(--ds-space-xxs)",
+      }}
     >
       {showLabel && <Skeleton width={80} height="12px" animate={animate} />}
       <Skeleton width={60} height={valueHeightBySize[size]} animate={animate} />

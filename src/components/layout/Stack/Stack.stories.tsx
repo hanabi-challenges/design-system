@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Stack } from './Stack';
-import { Box, Text, Title } from '../../../mantine';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Stack } from "./Stack";
+import { Box, Text, Title } from "../../../mantine";
 
 const meta: Meta<typeof Stack> = {
-  title: 'Layout/Stack',
+  title: "Layout/Stack",
   component: Stack,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
   argTypes: {
     gap: {
-      control: { type: 'select' },
-      options: ['default', 'title'],
+      control: { type: "select" },
+      options: ["default", "title"],
       description:
         "Semantic spacing between children. For this demo we only show 'default' and 'title'.",
     },
@@ -23,7 +23,7 @@ const meta: Meta<typeof Stack> = {
     children: { control: false },
   },
   args: {
-    gap: 'default',
+    gap: "default",
   },
 };
 
@@ -32,14 +32,20 @@ export default meta;
 type Story = StoryObj<typeof Stack>;
 
 // A simple card frame for teaching examples
-const DemoCard = ({ label, children }: { label: string; children: React.ReactNode }) => (
+const DemoCard = ({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) => (
   <Box
     component="section"
     style={{
       padding: 16,
       borderRadius: 12,
-      background: 'var(--ds-color-surface-muted)',
-      border: '1px solid var(--ds-color-border)',
+      background: "var(--ds-color-surface-muted)",
+      border: "1px solid var(--ds-color-border)",
       maxWidth: 480,
     }}
   >
@@ -48,10 +54,10 @@ const DemoCard = ({ label, children }: { label: string; children: React.ReactNod
       style={{
         fontSize: 12,
         fontWeight: 600,
-        textTransform: 'uppercase',
+        textTransform: "uppercase",
         letterSpacing: 0.04,
         marginBottom: 8,
-        color: 'var(--ds-color-text-muted)',
+        color: "var(--ds-color-text-muted)",
       }}
     >
       {label}
@@ -73,7 +79,8 @@ export const HeadingToBody: Story = {
           Quarterly metrics
         </Title>
         <Text style={{ margin: 0 }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Foo bar baz qux.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Foo bar baz
+          qux.
         </Text>
       </Stack>
     </DemoCard>
@@ -96,7 +103,8 @@ export const BodyToBody: Story = {
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Text>
         <Text style={{ margin: 0 }}>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip.
         </Text>
       </Stack>
     </DemoCard>

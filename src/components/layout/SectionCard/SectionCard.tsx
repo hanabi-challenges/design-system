@@ -1,7 +1,7 @@
-import type { CSSProperties, ReactElement, ReactNode } from 'react';
-import { Card } from '../Card/Card';
+import type { CSSProperties, ReactElement, ReactNode } from "react";
+import { Card } from "../Card/Card";
 
-export type SectionCardDensity = 'comfortable' | 'compact';
+export type SectionCardDensity = "comfortable" | "compact";
 
 export type SectionCardProps = {
   children: ReactNode;
@@ -16,14 +16,14 @@ export type SectionCardProps = {
  */
 export function SectionCard({
   children,
-  density = 'comfortable',
+  density = "comfortable",
   className,
   style,
 }: SectionCardProps): ReactElement {
   return (
     <Card
       variant="outline"
-      padding={density === 'compact' ? 'sm' : 'md'}
+      padding={density === "compact" ? "sm" : "md"}
       className={className}
       style={style}
     >

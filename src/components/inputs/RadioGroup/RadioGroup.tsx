@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
-import { Radio } from '../../../mantine';
-import { Stack } from '../../layout/Stack/Stack';
+import type { ReactElement } from "react";
+import { Radio } from "../../../mantine";
+import { Stack } from "../../layout/Stack/Stack";
 
 type RadioGroupOption = {
   value: string;
@@ -30,10 +30,21 @@ export function RadioGroup({
   className,
 }: RadioGroupProps): ReactElement {
   return (
-    <Radio.Group value={value} onChange={onChange} label={label} className={className} name={name}>
-      <Stack gap="xs" style={{ marginTop: 'var(--ds-space-xxs)' }}>
+    <Radio.Group
+      value={value}
+      onChange={onChange}
+      label={label}
+      className={className}
+      name={name}
+    >
+      <Stack gap="xs" style={{ marginTop: "var(--ds-space-xxs)" }}>
         {options.map((opt) => (
-          <Radio key={opt.value} value={opt.value} label={opt.label} disabled={opt.disabled} />
+          <Radio
+            key={opt.value}
+            value={opt.value}
+            label={opt.label}
+            disabled={opt.disabled}
+          />
         ))}
       </Stack>
     </Radio.Group>

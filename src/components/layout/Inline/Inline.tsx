@@ -1,16 +1,29 @@
 // src/design-system/components/layout/Inline/Inline.tsx
-import type { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react';
-import { Box } from '../../../mantine';
+import type {
+  CSSProperties,
+  HTMLAttributes,
+  ReactElement,
+  ReactNode,
+} from "react";
+import { Box } from "../../../mantine";
 
-export type InlineGap = 'none' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number | (string & {});
-export type InlineAlign = 'start' | 'center' | 'end' | 'baseline';
+export type InlineGap =
+  | "none"
+  | "xxs"
+  | "xs"
+  | "sm"
+  | "md"
+  | "lg"
+  | number
+  | (string & {});
+export type InlineAlign = "start" | "center" | "end" | "baseline";
 export type InlineJustify =
-  | 'start'
-  | 'center'
-  | 'end'
-  | 'space-between'
-  | 'space-around'
-  | 'space-evenly';
+  | "start"
+  | "center"
+  | "end"
+  | "space-between"
+  | "space-around"
+  | "space-evenly";
 
 export type InlineProps = {
   children: ReactNode;
@@ -44,43 +57,43 @@ export type InlineProps = {
   columnWidths?: Array<string | number>;
 
   className?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'>;
+} & Omit<HTMLAttributes<HTMLDivElement>, "className" | "children">;
 
 const namedGapMap: Record<string, string> = {
-  none: '0',
-  xxs: 'var(--ds-space-xxs)',
-  xs: 'var(--ds-space-xs)',
-  sm: 'var(--ds-space-sm)',
-  md: 'var(--ds-space-md)',
-  lg: 'var(--ds-space-lg)',
+  none: "0",
+  xxs: "var(--ds-space-xxs)",
+  xs: "var(--ds-space-xs)",
+  sm: "var(--ds-space-sm)",
+  md: "var(--ds-space-md)",
+  lg: "var(--ds-space-lg)",
 };
 
 function resolveGap(gap: InlineGap): string {
-  if (typeof gap === 'number') return `${gap}px`;
+  if (typeof gap === "number") return `${gap}px`;
   return namedGapMap[gap] ?? gap;
 }
 
-const alignMap: Record<InlineAlign, CSSProperties['alignItems']> = {
-  start: 'flex-start',
-  center: 'center',
-  end: 'flex-end',
-  baseline: 'baseline',
+const alignMap: Record<InlineAlign, CSSProperties["alignItems"]> = {
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  baseline: "baseline",
 };
 
-const justifyMap: Record<InlineJustify, CSSProperties['justifyContent']> = {
-  start: 'flex-start',
-  center: 'center',
-  end: 'flex-end',
-  'space-between': 'space-between',
-  'space-around': 'space-around',
-  'space-evenly': 'space-evenly',
+const justifyMap: Record<InlineJustify, CSSProperties["justifyContent"]> = {
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  "space-between": "space-between",
+  "space-around": "space-around",
+  "space-evenly": "space-evenly",
 };
 
 export function Inline({
   children,
-  gap = 'sm',
-  align = 'center',
-  justify = 'start',
+  gap = "sm",
+  align = "center",
+  justify = "start",
   wrap = false,
   columnWidths,
   className,
@@ -91,20 +104,20 @@ export function Inline({
     columnWidths && columnWidths.length > 0
       ? columnWidths
           .map((w) => {
-            if (typeof w === 'number') return `${w}fr`;
+            if (typeof w === "number") return `${w}fr`;
             const numeric = Number(w);
             return Number.isFinite(numeric) ? `${numeric}fr` : w;
           })
-          .join(' ')
+          .join(" ")
       : undefined;
 
   const inlineStyle: CSSProperties = {
-    display: gridTemplate ? 'grid' : 'flex',
-    flexDirection: gridTemplate ? undefined : 'row',
+    display: gridTemplate ? "grid" : "flex",
+    flexDirection: gridTemplate ? undefined : "row",
     gap: resolveGap(gap),
     alignItems: alignMap[align],
     justifyContent: justifyMap[justify],
-    ...(wrap && !gridTemplate ? { flexWrap: 'wrap' } : {}),
+    ...(wrap && !gridTemplate ? { flexWrap: "wrap" } : {}),
     ...(gridTemplate ? { gridTemplateColumns: gridTemplate } : {}),
     ...style,
   };

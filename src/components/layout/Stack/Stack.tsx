@@ -1,17 +1,31 @@
 // frontend/src/design-system/components/layout/Stack/Stack.tsx
-import type { CSSProperties, ElementType, HTMLAttributes, ReactElement, ReactNode } from 'react';
-import { Box } from '../../../mantine';
+import type {
+  CSSProperties,
+  ElementType,
+  HTMLAttributes,
+  ReactElement,
+  ReactNode,
+} from "react";
+import { Box } from "../../../mantine";
 
-export type StackGap = 'none' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number | (string & {});
-export type StackAlign = 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+export type StackGap =
+  | "none"
+  | "xxs"
+  | "xs"
+  | "sm"
+  | "md"
+  | "lg"
+  | number
+  | (string & {});
+export type StackAlign = "start" | "center" | "end" | "stretch" | "baseline";
 export type StackJustify =
-  | 'start'
-  | 'center'
-  | 'end'
-  | 'space-between'
-  | 'space-around'
-  | 'space-evenly';
-export type StackDirection = 'column' | 'row';
+  | "start"
+  | "center"
+  | "end"
+  | "space-between"
+  | "space-around"
+  | "space-evenly";
+export type StackDirection = "column" | "row";
 
 export type StackProps = {
   children: ReactNode;
@@ -48,46 +62,46 @@ export type StackProps = {
 
   className?: string;
   style?: CSSProperties;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children' | 'style'>;
+} & Omit<HTMLAttributes<HTMLDivElement>, "className" | "children" | "style">;
 
 const namedGapMap: Record<string, string | number> = {
   none: 0,
-  xxs: 'var(--ds-space-xxs)',
-  xs: 'var(--ds-space-xs)',
-  sm: 'var(--ds-space-sm)',
-  md: 'var(--ds-space-md)',
-  lg: 'var(--ds-space-lg)',
+  xxs: "var(--ds-space-xxs)",
+  xs: "var(--ds-space-xs)",
+  sm: "var(--ds-space-sm)",
+  md: "var(--ds-space-md)",
+  lg: "var(--ds-space-lg)",
 };
 
 function resolveGap(gap: StackGap): string | number {
-  if (typeof gap === 'number') return `${gap}px`;
+  if (typeof gap === "number") return `${gap}px`;
   return namedGapMap[gap] ?? gap;
 }
 
 const flexAlignMap: Record<StackAlign, string> = {
-  start: 'flex-start',
-  center: 'center',
-  end: 'flex-end',
-  stretch: 'stretch',
-  baseline: 'baseline',
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  stretch: "stretch",
+  baseline: "baseline",
 };
 
 const justifyMap: Record<StackJustify, string> = {
-  start: 'flex-start',
-  center: 'center',
-  end: 'flex-end',
-  'space-between': 'space-between',
-  'space-around': 'space-around',
-  'space-evenly': 'space-evenly',
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  "space-between": "space-between",
+  "space-around": "space-around",
+  "space-evenly": "space-evenly",
 };
 
 export function Stack({
   children,
   as,
-  gap = 'sm',
-  align = 'stretch',
-  justify = 'start',
-  direction = 'column',
+  gap = "sm",
+  align = "stretch",
+  justify = "start",
+  direction = "column",
   wrap = false,
   className,
   style,
@@ -95,15 +109,15 @@ export function Stack({
 }: StackProps): ReactElement {
   return (
     <Box
-      component={(as ?? 'div') as 'div'}
+      component={(as ?? "div") as "div"}
       className={className}
       style={{
-        display: 'flex',
+        display: "flex",
         flexDirection: direction,
         gap: resolveGap(gap),
         alignItems: flexAlignMap[align],
         justifyContent: justifyMap[justify],
-        flexWrap: wrap ? 'wrap' : 'nowrap',
+        flexWrap: wrap ? "wrap" : "nowrap",
         ...style,
       }}
       {...(rest as Record<string, unknown>)}

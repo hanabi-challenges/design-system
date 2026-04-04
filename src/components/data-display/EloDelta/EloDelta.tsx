@@ -1,5 +1,5 @@
-import type { ReactElement } from 'react';
-import { Text as MantineText } from '../../../mantine';
+import type { ReactElement } from "react";
+import { Text as MantineText } from "../../../mantine";
 
 type EloDeltaProps = {
   delta: number;
@@ -15,7 +15,7 @@ export function EloDelta({ delta }: EloDeltaProps): ReactElement {
     return (
       <MantineText
         component="span"
-        style={{ color: 'var(--ds-color-tone-success-text)', fontWeight: 600 }}
+        style={{ color: "var(--ds-color-tone-success-text)", fontWeight: 600 }}
       >
         {`▲ ${Math.abs(delta).toFixed(1)}`}
       </MantineText>
@@ -25,15 +25,18 @@ export function EloDelta({ delta }: EloDeltaProps): ReactElement {
     return (
       <MantineText
         component="span"
-        style={{ color: 'var(--ds-color-tone-danger-text)', fontWeight: 600 }}
+        style={{ color: "var(--ds-color-tone-danger-text)", fontWeight: 600 }}
       >
         {`▼ ${Math.abs(delta).toFixed(1)}`}
       </MantineText>
     );
   }
   return (
-    <MantineText component="span" style={{ color: 'var(--ds-color-text-muted)' }}>
-      {'■ 0.0'}
+    <MantineText
+      component="span"
+      style={{ color: "var(--ds-color-text-muted)" }}
+    >
+      {"■ 0.0"}
     </MantineText>
   );
 }

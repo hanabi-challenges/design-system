@@ -1,5 +1,5 @@
-import type { ReactElement } from 'react';
-import { Box, TextInput } from '../../../mantine';
+import type { ReactElement } from "react";
+import { Box, TextInput } from "../../../mantine";
 
 type DatePickerProps = {
   value?: string;
@@ -23,7 +23,7 @@ export function DatePicker({
   className,
 }: DatePickerProps): ReactElement {
   return (
-    <Box style={{ width: '100%' }} className={className}>
+    <Box style={{ width: "100%" }} className={className}>
       <TextInput
         type="date"
         label={label}

@@ -1,5 +1,5 @@
 // frontend/src/design-system/primitives/elevation/index.ts
-import { tokens } from '../tokens/index.ts';
+import { tokens } from "../tokens/index.ts";
 
 /**
  * Elevation levels combine shadow + zIndex into
@@ -7,7 +7,7 @@ import { tokens } from '../tokens/index.ts';
  */
 export const elevation = {
   none: {
-    shadow: 'none',
+    shadow: "none",
     zIndex: tokens.zIndex.base,
   },
 

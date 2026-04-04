@@ -1,5 +1,5 @@
-import type { ReactElement, ReactNode } from 'react';
-import { Box } from '../../../mantine';
+import type { ReactElement, ReactNode } from "react";
+import { Box } from "../../../mantine";
 
 type InputContainerProps = {
   label?: string;
@@ -27,26 +27,26 @@ export function InputContainer({
     <Box
       className={className}
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--ds-space-xxs)',
-        width: '100%',
+        display: "flex",
+        flexDirection: "column",
+        gap: "var(--ds-space-xxs)",
+        width: "100%",
       }}
     >
       {label && (
         <Box
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 'var(--ds-space-xs)',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "var(--ds-space-xs)",
           }}
         >
           <Box
             style={{
-              fontSize: 'var(--ds-textScale-3-fontSize, 12px)',
+              fontSize: "var(--ds-textScale-3-fontSize, 12px)",
               fontWeight: 600,
-              color: 'var(--ds-color-text)',
+              color: "var(--ds-color-text)",
             }}
           >
             {label}
@@ -56,12 +56,14 @@ export function InputContainer({
       )}
       <Box
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-space-xxs)',
-          minHeight: '40px',
-          justifyContent: 'center',
-          ...(hasError ? { color: 'var(--ds-color-semantic-alert-error-light-text)' } : {}),
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--ds-space-xxs)",
+          minHeight: "40px",
+          justifyContent: "center",
+          ...(hasError
+            ? { color: "var(--ds-color-semantic-alert-error-light-text)" }
+            : {}),
         }}
       >
         {children}
@@ -69,8 +71,8 @@ export function InputContainer({
       {hasError ? (
         <Box
           style={{
-            fontSize: 'var(--ds-textScale-3-fontSize, 12px)',
-            color: 'var(--ds-color-semantic-alert-error-light-text)',
+            fontSize: "var(--ds-textScale-3-fontSize, 12px)",
+            color: "var(--ds-color-semantic-alert-error-light-text)",
           }}
         >
           {error}
@@ -78,8 +80,8 @@ export function InputContainer({
       ) : helperText ? (
         <Box
           style={{
-            fontSize: 'var(--ds-textScale-3-fontSize, 12px)',
-            color: 'var(--ds-color-text-muted)',
+            fontSize: "var(--ds-textScale-3-fontSize, 12px)",
+            color: "var(--ds-color-text-muted)",
           }}
         >
           {helperText}

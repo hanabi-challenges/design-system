@@ -1,5 +1,5 @@
 // frontend/src/design-system/primitives/tokens/motion/index.ts
-import { tokens } from '../tokens/index.ts';
+import { tokens } from "../tokens/index.ts";
 
 /**
  * Semantic motion patterns built from raw motion tokens.

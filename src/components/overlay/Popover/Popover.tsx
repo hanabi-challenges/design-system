@@ -1,22 +1,22 @@
-import type { ReactElement, ReactNode } from 'react';
-import { Popover as MantinePopover } from '../../../mantine';
+import type { ReactElement, ReactNode } from "react";
+import { Popover as MantinePopover } from "../../../mantine";
 
 export type PopoverProps = {
   trigger: ReactNode;
   children: ReactNode;
   position?:
-    | 'top'
-    | 'bottom'
-    | 'left'
-    | 'right'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'left-start'
-    | 'left-end'
-    | 'right-start'
-    | 'right-end';
+    | "top"
+    | "bottom"
+    | "left"
+    | "right"
+    | "top-start"
+    | "top-end"
+    | "bottom-start"
+    | "bottom-end"
+    | "left-start"
+    | "left-end"
+    | "right-start"
+    | "right-end";
   width?: number | string;
 };
 
@@ -27,7 +27,7 @@ export type PopoverProps = {
 export function Popover({
   trigger,
   children,
-  position = 'bottom',
+  position = "bottom",
   width = 200,
 }: PopoverProps): ReactElement {
   return (
