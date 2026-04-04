@@ -340,7 +340,7 @@ const cssVariablesResolver: CSSVariablesResolver = () => ({
     "--ds-typography-fontFamily-display": '"Permanent Marker", cursive',
     "--ds-typography-fontFamily-heading": '"Permanent Marker", cursive',
     "--ds-typography-fontFamily-body": '"Inter", sans-serif',
-    "--ds-typography-fontFamily-prose": '"Lora", serif',
+    "--ds-typography-fontFamily-prose": '"Inter", sans-serif',
     "--ds-typography-fontFamily-mono": '"Roboto Mono", monospace',
     "--ds-typography-fontFamily-meta": '"Inter", sans-serif',
     "--ds-typography-fontWeight-display": "400",

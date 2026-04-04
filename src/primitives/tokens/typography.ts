@@ -3,7 +3,7 @@ export const typography = {
     display: '"Permanent Marker", cursive',
     heading: '"Permanent Marker", cursive',
     body: '"Inter", sans-serif',
-    prose: '"Lora", serif',
+    prose: '"Inter", sans-serif', // matches body until prose has a distinct use case
     mono: '"Roboto Mono", monospace',
     meta: '"Inter", sans-serif',
   },
