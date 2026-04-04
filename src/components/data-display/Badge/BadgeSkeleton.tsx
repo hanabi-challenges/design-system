@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
-import { Skeleton } from '../../feedback/Skeleton/Skeleton';
-import type { BadgeSize } from './Badge';
+import type { ReactElement } from "react";
+import { Skeleton } from "../../feedback/Skeleton/Skeleton";
+import type { BadgeSize } from "./Badge";
 
 type BadgeSkeletonProps = {
   size?: BadgeSize;
@@ -10,8 +10,8 @@ type BadgeSkeletonProps = {
 };
 
 const heightBySize: Record<BadgeSize, string> = {
-  sm: '18px',
-  md: '22px',
+  sm: "18px",
+  md: "22px",
 };
 
 /**
@@ -19,7 +19,7 @@ const heightBySize: Record<BadgeSize, string> = {
  * Pill-shaped shimmer placeholder matching Badge dimensions.
  */
 export function BadgeSkeleton({
-  size = 'md',
+  size = "md",
   width = 64,
   animate = true,
   className,

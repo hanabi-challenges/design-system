@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
-import { Skeleton } from '../../feedback/Skeleton/Skeleton';
-import { Inline } from '../Inline/Inline';
+import type { ReactElement } from "react";
+import { Skeleton } from "../../feedback/Skeleton/Skeleton";
+import { Inline } from "../Inline/Inline";
 
 type PageHeaderSkeletonProps = {
   level?: 1 | 2 | 3 | 4;
@@ -14,10 +14,10 @@ type PageHeaderSkeletonProps = {
 };
 
 const titleHeightByLevel: Record<1 | 2 | 3 | 4, string> = {
-  1: '40px',
-  2: '32px',
-  3: '26px',
-  4: '22px',
+  1: "40px",
+  2: "32px",
+  3: "26px",
+  4: "22px",
 };
 
 /**
@@ -37,12 +37,24 @@ export function PageHeaderSkeleton({
       justify="space-between"
       align="start"
       wrap
-      style={{ width: '100%' }}
+      style={{ width: "100%" }}
       className={className}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ds-space-xs)' }}>
-        <Skeleton width="45%" height={titleHeightByLevel[level]} animate={animate} />
-        {showSubtitle && <Skeleton width="65%" height="14px" animate={animate} />}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--ds-space-xs)",
+        }}
+      >
+        <Skeleton
+          width="45%"
+          height={titleHeightByLevel[level]}
+          animate={animate}
+        />
+        {showSubtitle && (
+          <Skeleton width="65%" height="14px" animate={animate} />
+        )}
       </div>
       {showActions && (
         <Skeleton

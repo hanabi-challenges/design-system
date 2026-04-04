@@ -1,21 +1,21 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: {
-    index: 'src/index.ts',
-    mantine: 'src/mantine.tsx',
+    index: "src/index.ts",
+    mantine: "src/mantine.tsx",
   },
-  format: ['esm'],
+  format: ["esm"],
   dts: {
     resolve: false,
   },
-  tsconfig: 'tsconfig.build.json',
+  tsconfig: "tsconfig.build.json",
   external: [
-    'react',
-    'react/jsx-runtime',
-    'react-dom',
-    '@mantine/core',
-    'react-router-dom',
+    "react",
+    "react/jsx-runtime",
+    "react-dom",
+    "@mantine/core",
+    "react-router-dom",
   ],
   clean: true,
   treeshake: true,

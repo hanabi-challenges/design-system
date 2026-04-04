@@ -1,10 +1,10 @@
-import type { CSSProperties, ReactElement } from 'react';
-import { Skeleton } from '../../feedback/Skeleton/Skeleton';
+import type { CSSProperties, ReactElement } from "react";
+import { Skeleton } from "../../feedback/Skeleton/Skeleton";
 
 type TableSkeletonProps = {
   rows?: number;
   cols?: number;
-  density?: 'relaxed' | 'tight';
+  density?: "relaxed" | "tight";
   animate?: boolean;
   className?: string;
 };
@@ -16,35 +16,35 @@ type TableSkeletonProps = {
 export function TableSkeleton({
   rows = 5,
   cols = 4,
-  density = 'relaxed',
+  density = "relaxed",
   animate = true,
   className,
 }: TableSkeletonProps): ReactElement {
-  const tight = density === 'tight';
-  const cellPaddingV = tight ? 'var(--ds-space-xxs)' : 'var(--ds-space-xs)';
-  const cellPaddingH = tight ? 'var(--ds-space-xs)' : 'var(--ds-space-sm)';
-  const cellHeight = tight ? '12px' : '14px';
+  const tight = density === "tight";
+  const cellPaddingV = tight ? "var(--ds-space-xxs)" : "var(--ds-space-xs)";
+  const cellPaddingH = tight ? "var(--ds-space-xs)" : "var(--ds-space-sm)";
+  const cellHeight = tight ? "12px" : "14px";
 
   const cellStyle: CSSProperties = {
     padding: `${cellPaddingV} ${cellPaddingH}`,
-    borderBottom: '1px solid var(--ds-color-border)',
+    borderBottom: "1px solid var(--ds-color-border)",
   };
 
   const headerCellStyle: CSSProperties = {
     ...cellStyle,
-    background: 'var(--ds-color-surface-muted)',
+    background: "var(--ds-color-surface-muted)",
   };
 
   return (
     <div
       className={className}
       style={{
-        borderRadius: 'var(--ds-radius-sm)',
-        border: '1px solid var(--ds-color-border)',
-        overflow: 'hidden',
+        borderRadius: "var(--ds-radius-sm)",
+        border: "1px solid var(--ds-color-border)",
+        overflow: "hidden",
       }}
     >
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
           <tr>
             {Array.from({ length: cols }, (_, i) => (

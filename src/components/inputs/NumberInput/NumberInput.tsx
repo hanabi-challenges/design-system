@@ -1,5 +1,5 @@
-import type { ReactElement } from 'react';
-import { NumberInput as MantineNumberInput } from '../../../mantine';
+import type { ReactElement } from "react";
+import { NumberInput as MantineNumberInput } from "../../../mantine";
 
 /**
  * NumberInput

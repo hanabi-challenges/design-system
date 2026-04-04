@@ -1,4 +1,4 @@
-import type { MouseEventHandler, ReactNode } from 'react';
+import type { MouseEventHandler, ReactNode } from "react";
 
 /**
  * Mantine v8 does not include `children` or common HTML event handlers in
@@ -6,7 +6,7 @@ import type { MouseEventHandler, ReactNode } from 'react';
  * here so all Mantine container components (Box, Paper, and anything that
  * extends BoxProps) accept these props without type errors.
  */
-declare module '@mantine/core' {
+declare module "@mantine/core" {
   interface BoxProps {
     children?: ReactNode;
     onClick?: MouseEventHandler<HTMLElement>;

@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactElement, ReactNode } from 'react';
-import { Box } from '../../../mantine';
+import type { CSSProperties, ReactElement, ReactNode } from "react";
+import { Box } from "../../../mantine";
 
 type SectionProps = {
   children: ReactNode;
@@ -9,28 +9,55 @@ type SectionProps = {
 };
 
 const sectionStyle = {
-  padding: 'var(--ds-space-sm) var(--ds-space-md)',
+  padding: "var(--ds-space-sm) var(--ds-space-md)",
 };
 
-export function CardHeader({ children, className, style, onClick }: SectionProps): ReactElement {
+export function CardHeader({
+  children,
+  className,
+  style,
+  onClick,
+}: SectionProps): ReactElement {
   return (
-    <Box className={className} style={{ ...sectionStyle, ...style }} onClick={onClick}>
+    <Box
+      className={className}
+      style={{ ...sectionStyle, ...style }}
+      onClick={onClick}
+    >
       {children}
     </Box>
   );
 }
 
-export function CardBody({ children, className, style, onClick }: SectionProps): ReactElement {
+export function CardBody({
+  children,
+  className,
+  style,
+  onClick,
+}: SectionProps): ReactElement {
   return (
-    <Box className={className} style={{ ...sectionStyle, ...style }} onClick={onClick}>
+    <Box
+      className={className}
+      style={{ ...sectionStyle, ...style }}
+      onClick={onClick}
+    >
       {children}
     </Box>
   );
 }
 
-export function CardFooter({ children, className, style, onClick }: SectionProps): ReactElement {
+export function CardFooter({
+  children,
+  className,
+  style,
+  onClick,
+}: SectionProps): ReactElement {
   return (
-    <Box className={className} style={{ ...sectionStyle, ...style }} onClick={onClick}>
+    <Box
+      className={className}
+      style={{ ...sectionStyle, ...style }}
+      onClick={onClick}
+    >
       {children}
     </Box>
   );

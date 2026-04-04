@@ -1,5 +1,5 @@
 // frontend/src/design-system/primitives/grid/index
-import { tokens } from '../tokens/index.ts';
+import { tokens } from "../tokens/index.ts";
 
 /**
  * Grid system primitives.

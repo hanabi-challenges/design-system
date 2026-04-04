@@ -1,5 +1,5 @@
-import type { ReactElement, ReactNode } from 'react';
-import { List as MantineList } from '../../../mantine';
+import type { ReactElement, ReactNode } from "react";
+import { List as MantineList } from "../../../mantine";
 
 type ListItemType = {
   key?: string | number;
@@ -9,8 +9,8 @@ type ListItemType = {
 
 type ListProps = {
   items: ListItemType[];
-  type?: 'unordered' | 'ordered';
-  spacing?: 'xs' | 'sm' | 'md';
+  type?: "unordered" | "ordered";
+  spacing?: "xs" | "sm" | "md";
   className?: string;
 };
 
@@ -20,13 +20,13 @@ type ListProps = {
  */
 export function List({
   items,
-  type = 'unordered',
-  spacing = 'xs',
+  type = "unordered",
+  spacing = "xs",
   className,
 }: ListProps): ReactElement {
   return (
     <MantineList
-      type={type === 'ordered' ? 'ordered' : 'unordered'}
+      type={type === "ordered" ? "ordered" : "unordered"}
       spacing={spacing}
       className={className}
     >

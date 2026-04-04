@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
-import { Skeleton } from '../../feedback/Skeleton/Skeleton';
-import type { PillSize } from './Pill';
+import type { ReactElement } from "react";
+import { Skeleton } from "../../feedback/Skeleton/Skeleton";
+import type { PillSize } from "./Pill";
 
 type PillSkeletonProps = {
   size?: PillSize;
@@ -10,10 +10,10 @@ type PillSkeletonProps = {
 };
 
 const heightBySize: Record<PillSize, string> = {
-  xs: '20px',
-  sm: '24px',
-  md: '32px',
-  lg: '36px',
+  xs: "20px",
+  sm: "24px",
+  md: "32px",
+  lg: "36px",
 };
 
 /**
@@ -21,7 +21,7 @@ const heightBySize: Record<PillSize, string> = {
  * Pill-shaped shimmer placeholder matching Pill dimensions.
  */
 export function PillSkeleton({
-  size = 'md',
+  size = "md",
   width = 80,
   animate = true,
   className,

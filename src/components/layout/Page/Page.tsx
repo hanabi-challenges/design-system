@@ -1,10 +1,10 @@
 // frontend/src/design-system/components/layout/Page/Page.tsx
-import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
-import { Box } from '../../../mantine';
-import { Inline } from '../Inline/Inline';
+import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
+import { Box } from "../../../mantine";
+import { Inline } from "../Inline/Inline";
 
-export type PageSpacing = 'none' | 'sm' | 'md' | 'lg';
-export type PageHeaderAlign = 'start' | 'center';
+export type PageSpacing = "none" | "sm" | "md" | "lg";
+export type PageHeaderAlign = "start" | "center";
 
 export type PageProps = {
   /**
@@ -40,20 +40,20 @@ export type PageProps = {
   headerAlign?: PageHeaderAlign;
 
   className?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'>;
+} & Omit<HTMLAttributes<HTMLDivElement>, "className" | "children">;
 
 const spacingPaddingMap: Record<PageSpacing, string> = {
-  none: '0',
-  sm: 'var(--ds-space-xs)',
-  md: 'var(--ds-space-sm)',
-  lg: 'var(--ds-space-md)',
+  none: "0",
+  sm: "var(--ds-space-xs)",
+  md: "var(--ds-space-sm)",
+  lg: "var(--ds-space-md)",
 };
 
 const headerMarginMap: Record<PageSpacing, string> = {
-  none: 'var(--ds-space-xs)',
-  sm: 'var(--ds-space-xs)',
-  md: 'var(--ds-space-sm)',
-  lg: 'var(--ds-space-md)',
+  none: "var(--ds-space-xs)",
+  sm: "var(--ds-space-xs)",
+  md: "var(--ds-space-sm)",
+  lg: "var(--ds-space-md)",
 };
 
 export function Page({
@@ -61,27 +61,27 @@ export function Page({
   description,
   actions,
   children,
-  spacing = 'md',
-  headerAlign = 'start',
+  spacing = "md",
+  headerAlign = "start",
   className,
   ...rest
 }: PageProps) {
   const hasHeader = title || description || actions;
 
   const rootStyle: CSSProperties = {
-    display: 'block',
-    width: '100%',
+    display: "block",
+    width: "100%",
     paddingBlock: spacingPaddingMap[spacing],
   };
 
   const headerStyle: CSSProperties = {
-    display: 'flex',
-    gap: 'var(--ds-space-xs)',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
+    display: "flex",
+    gap: "var(--ds-space-xs)",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
     marginBottom: headerMarginMap[spacing],
-    ...(headerAlign === 'center'
-      ? { flexDirection: 'column', alignItems: 'center', textAlign: 'center' }
+    ...(headerAlign === "center"
+      ? { flexDirection: "column", alignItems: "center", textAlign: "center" }
       : {}),
   };
 
@@ -90,12 +90,14 @@ export function Page({
       {hasHeader ? (
         <Box component="header" style={headerStyle}>
           <Box style={{ minWidth: 0 }}>
-            {title ? <Box style={{ marginBottom: 'var(--ds-space-xxs)' }}>{title}</Box> : null}
+            {title ? (
+              <Box style={{ marginBottom: "var(--ds-space-xxs)" }}>{title}</Box>
+            ) : null}
             {description ? (
               <Box
                 style={{
-                  color: 'var(--ds-color-text-muted)',
-                  fontSize: 'var(--ds-textScale-3-fontSize, 12px)',
+                  color: "var(--ds-color-text-muted)",
+                  fontSize: "var(--ds-textScale-3-fontSize, 12px)",
                 }}
               >
                 {description}
@@ -104,11 +106,11 @@ export function Page({
           </Box>
 
           {actions ? (
-            <Box style={{ display: 'block' }}>
+            <Box style={{ display: "block" }}>
               <Inline
                 gap="sm"
                 align="center"
-                justify={headerAlign === 'center' ? 'center' : 'end'}
+                justify={headerAlign === "center" ? "center" : "end"}
                 wrap
               >
                 {actions}

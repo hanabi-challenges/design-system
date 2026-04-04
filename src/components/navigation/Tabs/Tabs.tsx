@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
-import { Box } from '../../../mantine';
-import { Button } from '../../inputs/Button/Button';
+import type { ReactElement } from "react";
+import { Box } from "../../../mantine";
+import { Button } from "../../inputs/Button/Button";
 
 export type TabItem = {
   key: string;
@@ -18,7 +18,11 @@ type TabsProps = {
 export function Tabs({ items, className }: TabsProps): ReactElement {
   return (
     <Box
-      style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--ds-space-xs)' }}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "var(--ds-space-xs)",
+      }}
       className={className}
     >
       {items.map((item) => (
@@ -30,14 +34,14 @@ export function Tabs({ items, className }: TabsProps): ReactElement {
           style={
             item.active
               ? {
-                  background: 'var(--ds-color-accent-weak)',
-                  borderColor: 'var(--ds-color-accent-strong)',
+                  background: "var(--ds-color-accent-weak)",
+                  borderColor: "var(--ds-color-accent-strong)",
                 }
-              : { borderColor: 'transparent' }
+              : { borderColor: "transparent" }
           }
           disabled={item.disabled}
           onClick={item.onSelect}
-          aria-current={item.active ? 'page' : undefined}
+          aria-current={item.active ? "page" : undefined}
           aria-disabled={item.disabled ? true : undefined}
         >
           {item.label}

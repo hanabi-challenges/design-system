@@ -1,11 +1,11 @@
 // frontend/src/design-system/primitives/tokens/icon.ts
 export const icon = {
   size: {
-    xs: '12px', // tiny UI / dense tables
-    sm: '16px', // default inline icon
-    md: '20px', // buttons, primary nav
-    lg: '24px', // larger affordances
-    xl: '32px', // occasional hero / empty-state
+    xs: "12px", // tiny UI / dense tables
+    sm: "16px", // default inline icon
+    md: "20px", // buttons, primary nav
+    lg: "24px", // larger affordances
+    xl: "32px", // occasional hero / empty-state
   },
 
   /**

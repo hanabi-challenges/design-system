@@ -1,22 +1,22 @@
-import type { CSSProperties, ReactElement, ReactNode } from 'react';
-import { Table as MantineTable } from '../../../mantine';
+import type { CSSProperties, ReactElement, ReactNode } from "react";
+import { Table as MantineTable } from "../../../mantine";
 
 type TableProps = {
   children: ReactNode;
-  density?: 'relaxed' | 'tight';
+  density?: "relaxed" | "tight";
   className?: string;
   style?: CSSProperties;
 };
 
 function TableComponent({
   children,
-  density = 'relaxed',
+  density = "relaxed",
   className,
   style,
 }: TableProps): ReactElement {
-  const tight = density === 'tight';
-  const cellFontSize: CSSProperties['fontSize'] = tight
-    ? 'var(--ds-textScale-3-fontSize, 12px)'
+  const tight = density === "tight";
+  const cellFontSize: CSSProperties["fontSize"] = tight
+    ? "var(--ds-textScale-3-fontSize, 12px)"
     : undefined;
 
   return (
@@ -24,17 +24,33 @@ function TableComponent({
       highlightOnHover
       withRowBorders
       className={className}
-      style={{ '--table-hover-color': 'var(--ds-color-surface-muted)', ...style } as CSSProperties}
-      verticalSpacing={tight ? ('var(--ds-space-xxs)' as never) : ('var(--ds-space-xs)' as never)}
-      horizontalSpacing={tight ? ('var(--ds-space-xs)' as never) : ('var(--ds-space-sm)' as never)}
+      style={
+        {
+          "--table-hover-color": "var(--ds-color-surface-muted)",
+          ...style,
+        } as CSSProperties
+      }
+      verticalSpacing={
+        tight
+          ? ("var(--ds-space-xxs)" as never)
+          : ("var(--ds-space-xs)" as never)
+      }
+      horizontalSpacing={
+        tight
+          ? ("var(--ds-space-xs)" as never)
+          : ("var(--ds-space-sm)" as never)
+      }
       styles={{
-        thead: { background: 'var(--ds-color-surface-muted)' } as CSSProperties,
+        thead: { background: "var(--ds-color-surface-muted)" } as CSSProperties,
         th: {
           fontWeight: 600,
           fontSize: cellFontSize,
-          borderColor: 'var(--ds-color-border)',
+          borderColor: "var(--ds-color-border)",
         } as CSSProperties,
-        td: { fontSize: cellFontSize, borderColor: 'var(--ds-color-border)' } as CSSProperties,
+        td: {
+          fontSize: cellFontSize,
+          borderColor: "var(--ds-color-border)",
+        } as CSSProperties,
       }}
     >
       {children}

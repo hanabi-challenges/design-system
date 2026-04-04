@@ -4,7 +4,7 @@ This is the `@hanabi-challenges/design-system` package. It is a standalone publi
 
 ## Structure
 
-- `src/index.ts` — primary export surface (Tier 1 DS components + Core* re-exports)
+- `src/index.ts` — primary export surface (Tier 1 DS components + Core\* re-exports)
 - `src/mantine.tsx` — Mantine wrappers and defaults; the boundary between raw Mantine and the DS
 - `src/components/` — all first-party components
 - `src/primitives/` — design tokens, text-styles, themes
@@ -14,7 +14,7 @@ This is the `@hanabi-challenges/design-system` package. It is a standalone publi
 See `docs/standards.md` for the full tier definition.
 
 - **Tier 1**: Custom-built DS components (`Button`, `Text`, `Heading`, etc.) — exported from `src/index.ts`
-- **Tier 2 (Core*)**: Mantine components re-exported through the DS boundary — prefixed `Core` in `src/index.ts`
+- **Tier 2 (Core\*)**: Mantine components re-exported through the DS boundary — prefixed `Core` in `src/index.ts`
 
 ## Adding Components
 
@@ -36,6 +36,7 @@ This package uses Changesets. To ship a change:
 Do NOT commit, push, or open PRs unless explicitly asked.
 
 Before committing, run:
+
 ```
 pnpm format && pnpm lint && pnpm typecheck && pnpm build
 ```

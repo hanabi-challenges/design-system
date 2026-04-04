@@ -1,5 +1,5 @@
 // frontend/src/design-system/primitives/tokens/size.ts
-import { space } from './space.ts';
+import { space } from "./space.ts";
 
 export const size = {
   /**
@@ -13,19 +13,19 @@ export const size = {
    */
   control: {
     sm: {
-      height: '28px',
+      height: "28px",
       paddingX: space.xs, // 8px
-      footprint: '28px',
+      footprint: "28px",
     },
     md: {
-      height: '32px',
+      height: "32px",
       paddingX: space.sm, // 12px
-      footprint: '32px',
+      footprint: "32px",
     },
     lg: {
-      height: '40px',
+      height: "40px",
       paddingX: space.md, // 16px
-      footprint: '40px',
+      footprint: "40px",
     },
   },
 
@@ -37,15 +37,15 @@ export const size = {
    */
   pill: {
     sm: {
-      height: '20px',
+      height: "20px",
       paddingX: space.xs, // 8px
     },
     md: {
-      height: '24px',
-      paddingX: '10px', // between xs (8) and sm (12), tuned by eye
+      height: "24px",
+      paddingX: "10px", // between xs (8) and sm (12), tuned by eye
     },
     lg: {
-      height: '28px',
+      height: "28px",
       paddingX: space.sm, // 12px
     },
   },
@@ -57,9 +57,9 @@ export const size = {
    * embedding controls in rows does not distort the table.
    */
   tableRow: {
-    dense: '28px', // aligns with control.sm.footprint
-    regular: '32px', // aligns with control.md.footprint
-    relaxed: '40px', // aligns with control.lg.footprint (future-friendly)
+    dense: "28px", // aligns with control.sm.footprint
+    regular: "32px", // aligns with control.md.footprint
+    relaxed: "40px", // aligns with control.lg.footprint (future-friendly)
   },
 } as const;
 

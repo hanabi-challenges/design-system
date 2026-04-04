@@ -1,7 +1,7 @@
-import type { CSSProperties, ReactElement, ReactNode } from 'react';
-import { Box } from '../../../mantine';
+import type { CSSProperties, ReactElement, ReactNode } from "react";
+import { Box } from "../../../mantine";
 
-export type GridGap = 'none' | 'xs' | 'sm' | 'md' | 'lg';
+export type GridGap = "none" | "xs" | "sm" | "md" | "lg";
 
 type GridProps = {
   children: ReactNode;
@@ -14,25 +14,25 @@ type GridProps = {
 };
 
 const gapTokenMap: Record<GridGap, string> = {
-  none: '0',
-  xs: 'var(--ds-space-xxs)',
-  sm: 'var(--ds-space-xs)',
-  md: 'var(--ds-space-sm)',
-  lg: 'var(--ds-space-md)',
+  none: "0",
+  xs: "var(--ds-space-xxs)",
+  sm: "var(--ds-space-xs)",
+  md: "var(--ds-space-sm)",
+  lg: "var(--ds-space-md)",
 };
 
 export function Grid({
   children,
   columns,
-  gap = 'md',
+  gap = "md",
   rowGap,
   colGap,
   className,
   style,
 }: GridProps): ReactElement {
   const inlineStyle: CSSProperties = {
-    display: 'grid',
-    width: '100%',
+    display: "grid",
+    width: "100%",
     gap: gapTokenMap[gap],
     ...(rowGap ? { rowGap: gapTokenMap[rowGap] } : {}),
     ...(colGap ? { columnGap: gapTokenMap[colGap] } : {}),
